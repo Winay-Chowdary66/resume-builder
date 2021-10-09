@@ -1,4 +1,4 @@
-<h1>GO <a href="https://resumebuilder-4672a.web.app">Live</a></h1>
+<h1>GO <a href="https://resumebuilder-4672a.web.app" target="_blank">Live</a></h1>
 
 
 # ResumeBuilder
