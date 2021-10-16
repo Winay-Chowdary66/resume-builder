@@ -1,3 +1,6 @@
+<h1>GO <a href="https://resumebuilder-4672a.web.app" target="_blank">Live</a></h1>
+
+
 # ResumeBuilder
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
