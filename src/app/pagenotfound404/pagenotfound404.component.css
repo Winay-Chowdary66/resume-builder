@@ -1,0 +1,53 @@
+#page-not-found #logo {
+  position: absolute;
+  top: 15px;
+  /* left: 20px; */
+  cursor: pointer;
+  left: 3%;
+}
+
+#page-not-found #svg-404{
+    position: absolute;
+    display: grid;
+    place-items: center;
+    top: 0px;
+    left: 20%;
+}
+
+#page-not-found #btn {
+  position: relative;
+  left: 43%;
+  bottom: -580px;
+  background: none;
+  background-color: var(--primaryColor);
+  background-image: linear-gradient(
+    to right,
+    var(--secondaryColor),
+    var(--primaryColor)
+  );
+  border: none;
+  border-radius: 5px;
+  color: var(--lightTextColor);
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 400;
+  height: 7vh;
+  letter-spacing: 1px;
+  max-height: 52px;
+  max-width: 180px;
+  min-height: 40px;
+  min-width: 140px;
+  padding: 12px 18px;
+  width: 16vw;
+  font-family: "Poppins";
+  box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%),
+    0 1px 5px 0 rgb(0 0 0 / 12%);
+}
+
+@media only screen and (max-width: 900px) {
+  #page-not-found{
+    display: none;
+  }
+}
+
+
