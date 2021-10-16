@@ -1,15 +1,28 @@
 import { Component } from '@angular/core';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 import * as $ from 'jquery/';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+export class AppComponent {
 
+  constructor(private loadingBarService: LoadingBarService){
+    $(document).ready(()=>{
+      this.loadMe();
+    })
+  }
 
-
-export class AppComponent {}
+  loadMe() {
+    this.loadingBarService.useRef().start(30);
+    setTimeout(() => {
+      this.loadingBarService.useRef().complete();
+    }, 1500);
+  }
+}
 let isMobile: any = {
   Android: function () {
     return navigator.userAgent.match(/Android/i);
