@@ -1,0 +1,98 @@
+{
+  "data": [
+    { "image": "" },
+    {
+      "title": { "fullName": "OLIVIA WILSON", "jobRole": "ML Engineer" }
+    },
+    {
+      "profile": {
+        "About": "A Python developer with 5.8 years of experience in Django, Flask for Retail eCommerce, POS and Storage domain."
+      }
+    },
+    {
+      "experience": {
+        "tempTitle": "Experience",
+        "organisation": {
+          "thisTitle": "Organisation / University / Project Name",
+          "name": "OzoneAI"
+        },
+        "role": [
+          { "thisTitle": "Role / Responsibility / Course" },
+          { "name": "ML Engineer" }
+        ],
+        "startYear": "2020",
+        "endYear": "Present",
+        "point1": "Utilized PySpark to distribute data processing on large streaming datasets to improve ingestion and processing speed.",
+        "ponit2": "Build basic ETL that ingested transactional and event data from a web app"
+      },
+      "contact": [
+        { "email": "olivwil@gmail.com" },
+        { "phone": "+91 9492117926" },
+        { "github": "github.com/olivwil" },
+        { "linkedIn": "linkedin.com/olivwil" }
+      ],
+      "project": {
+        "tempTitle": "Projects",
+        "organisation": [
+          { "thisTitle": "Organisation / University / Project Name" },
+          { "name": "Campus Events" }
+        ],
+        "role": [
+          { "thisTitle": "Role / Responsibility / Course" },
+          { "name": "" }
+        ],
+        "startYear": "",
+        "endYear": "Present",
+        "point1": "Led the data ingestion efforts for our three person team which developed a real time tracker of campus events.",
+        "ponit2": "Built web scraper in Python that got data from websites of campus groups then built an ETL."
+      },
+      "education": [
+        {
+          "university": "University of Pittburgh",
+          "course": "B.S in Computer Science",
+          "fromYear": "2015",
+          "toYear": "2019"
+        },
+        {
+          "university": "University of Pittburgh",
+          "course": "M.S in Computer Science",
+          "fromYear": "2019",
+          "toYear": "2021"
+        }
+      ],
+      "skillsSummary": {
+        "skill1": {
+          "title": "Python",
+          "rating": "4"
+        },
+        "skill2": {
+          "title": "Tensorflow",
+          "rating": "2"
+        },
+        "skill3": {
+          "title": "Keras",
+          "rating": "1"
+        },
+        "skills4": {
+          "title": "Django",
+          "rating": "4"
+        },
+        "skills5": {
+          "title": "MongoDB",
+          "rating": "3"
+        }
+      },
+      "awardsReceived": {
+        "award1": "Most Outstanding Employee of the Year, Pixelpoint Hive (2015).",
+        "award2": "Best Mobile App Design, HGFZ Graduate Center (2014).",
+        "award3": "Design Award, Cliffmoor College (2012)"
+      },
+      "interests": {
+        "interest1": "Gaming",
+        "interest2": "Travelling",
+        "interest3": "Singing",
+        "interest4": "Sketching"
+      }
+    }
+  ]
+}

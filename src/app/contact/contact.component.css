@@ -2,7 +2,7 @@ footer#contact {
   position: relative;
   width: 101%;
   height: 40vh;
-  bottom: -1300px;
+  bottom: -1900px;
   z-index: 1;
   background-color: var(--primaryColor);
   overflow-x: hidden;

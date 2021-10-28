@@ -1,0 +1,7 @@
+#logo svg{
+  position: absolute;
+  top: 15px;
+  cursor: pointer;
+  left: 2%;
+  z-index: 1;
+}

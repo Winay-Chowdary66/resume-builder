@@ -15,7 +15,6 @@ export class TemplateComponent implements OnInit {
 
   ngOnInit(): void {
     this.templateService.getTemplates().subscribe( (res:Templates) =>{
-      // console.log(res.templatesList[0].imgSrc);
       this.templates = res.templatesList;
     });
     

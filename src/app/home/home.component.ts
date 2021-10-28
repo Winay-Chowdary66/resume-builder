@@ -39,8 +39,7 @@ export class HomeComponent implements OnInit {
   }
 
   goToHomePage() {
-    this.appCom.loadMe();
-    this.router.navigate(['']);
+    this.appCom.goToHomePage();
   }
 
   getTemplates() {

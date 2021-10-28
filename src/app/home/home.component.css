@@ -1,20 +1,13 @@
 header{
-  display: block;
+  position: relative;
+  top: -265px;
 }
 
 #nav-bar {
   position: relative;
   width: 100vw;
   height: 46px;
-  top: 28px;
-}
-
-#nav-bar svg {
-  position: absolute;
-  top: -15px;
-  /* left: 20px; */
-  cursor: pointer;
-  left: 3%;
+  top: 25px;
 }
 
 #nav-bar nav {
@@ -127,7 +120,6 @@ header{
   font-weight: normal;
   font-size: 18px;
   line-height: 45px;
-  /* identical to box height */
   letter-spacing: 0.05em;
   margin-left: 40px;
   color: #11e8a1;

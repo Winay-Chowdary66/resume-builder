@@ -1,16 +1,17 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/resume-builder",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
     "rewrites": [
-      {
-        "source": "**",
-        "destination": "dist/resume-builder/index.html"
-      }
-    ]
+  {
+    "source": "!{/bower_components,/src}/**",
+    "destination": "/index.html"
+  }
+]
+
   }
 }

@@ -27,7 +27,6 @@ export class Pagenotfound404Component implements OnInit {
   }
 
   goToHomePage() {
-    this.router.navigate(['']);
-    this.appComp.loadMe();
+    this.appComp.goToHomePage();
   }
 }
