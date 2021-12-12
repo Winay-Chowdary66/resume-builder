@@ -1,0 +1,358 @@
+<div class="form-editor-container">
+  <!-- <p>Click edit button of any block in the template.</p> -->
+  <form [formGroup]="resumeForm" *ngIf="editBtnProperty">
+    <ng-container *ngIf="editBtnProperty=='profile'">
+      <div class="inputbox-module">
+        <label for="firstName" class="inputbox-label">First Name</label
+        ><input
+          type="text"
+          id="firstName"
+          placeholder="e.g Vinay Chowdary"
+          data-filled="true"
+          spellcheck="false"
+          value="Vinay Chowdary"
+          class="inputbox-input"
+          formControlName="firstName"
+          [(ngModel)]="firstName"
+        />
+      </div>
+      <div class="inputbox-module">
+        <label for="jobRole" class="inputbox-label">Job Role</label
+        ><input
+          type="text"
+          id="jobRole"
+          placeholder="e.g Full Stack Developer"
+          data-filled="true"
+          value="Engineer"
+          spellcheck="false"
+          class="inputbox-input"
+          formControlName="jobRole"
+          [(ngModel)]="jobRole"
+        />
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="editBtnProperty == 'experience'">
+      <div class="experience" [formGroup]="experience">
+        <div class="inputbox-module">
+          <label for="title" class="inputbox-label">Title</label
+          ><input
+            id="title"
+            class="inputbox-input"
+            placeholder="e.g Work Experience"
+            data-filled="true"
+            spellcheck="false"
+            value="Experience"
+            formControlName="title"
+            [(ngModel)]="experienceForm.title"
+          />
+        </div>
+        <div>
+          <br />
+          <div class="inputbox-module">
+            <label for="organization" class="inputbox-label"
+              >Organisation / University / Project Name</label
+            ><input
+              id="organization"
+              class="inputbox-input"
+              placeholder="e.g OzoneAI"
+              data-filled="true"
+              spellcheck="false"
+              value="OzoneAI"
+              formControlName="organization"
+              [(ngModel)]="experienceForm.organization"
+            />
+          </div>
+          <div class="inputbox-module">
+            <label id="roleInProj" class="inputbox-label"
+              >Role / Responsibility / Course</label
+            ><input
+              id="roleInProj"
+              class="inputbox-input"
+              placeholder="e.g ML Engineer"
+              data-filled="true"
+              spellcheck="false"
+              value="ML Engineer"
+              formControlName="roleInProj"
+              [(ngModel)]="experienceForm.roleInProj"
+            />
+          </div>
+          <div class="inputbox-module">
+            <label for="startingYear" class="inputbox-label"
+              >Starting Year</label
+            ><input
+              id="startingYear"
+              class="inputbox-input"
+              placeholder="e.g 2017"
+              data-filled="true"
+              spellcheck="false"
+              value="2019"
+              formControlName="startingYear"
+              [(ngModel)]="experienceForm.startingYear"
+            />
+          </div>
+          <div class="inputbox-module">
+            <label for="endingYear" class="inputbox-label">Ending Year</label
+            ><input
+              id="endingYear"
+              class="inputbox-input"
+              placeholder="e.g 2018"
+              data-filled="false"
+              spellcheck="false"
+              value=""
+              data-filled="true"
+              formControlName="endingYear"
+              [(ngModel)]="experienceForm.endingYear"
+            />
+            <p class="InputBox-module--caption--2L2uS">
+              Leave it blank to mark it as Present
+            </p>
+          </div>
+          <div class="inputbox-module">
+            <label for="point1" class="inputbox-label">Point 1</label
+            ><textarea
+              id="point1"
+              class="inputbox-input"
+              placeholder="e.g Create functional and technical aplications documents"
+              data-filled="true"
+              spellcheck="false"
+              formControlName="point1"
+              [(ngModel)]="experienceForm.point1"
+            >{{experienceForm.point1}}</textarea>
+          </div>
+          <div class="inputbox-module">
+            <label id="point2" class="inputbox-label">Point 2</label
+            ><textarea
+              id="point2"
+              class="inputbox-input"
+              placeholder="e.g Create functional and technical aplications documents"
+              data-filled="true"
+              spellcheck="false"
+              formControlName="point2"
+              [(ngModel)]="experienceForm.point2"
+              >{{ experienceForm.point2 }}</textarea
+            >
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="editBtnProperty == 'projects'">
+      <div class="experience" [formGroup]="projects">
+        <div class="inputbox-module">
+          <label for="title" class="inputbox-label">Title</label
+          ><input
+            id="title"
+            class="inputbox-input"
+            placeholder="e.g Work Experience"
+            data-filled="true"
+            spellcheck="false"
+            value="Experience"
+            formControlName="title"
+            [(ngModel)]="projectsForm.title"
+          />
+        </div>
+        <div>
+          <br />
+          <div class="inputbox-module">
+            <label for="organization" class="inputbox-label"
+              >Organisation / University / Project Name</label
+            ><input
+              id="organization"
+              class="inputbox-input"
+              placeholder="e.g OzoneAI"
+              data-filled="true"
+              spellcheck="false"
+              value="OzoneAI"
+              formControlName="organization"
+              [(ngModel)]="projectsForm.organization"
+            />
+          </div>
+          <div class="inputbox-module">
+            <label id="roleInProj" class="inputbox-label"
+              >Role / Responsibility / Course</label
+            ><input
+              id="roleInProj"
+              class="inputbox-input"
+              placeholder="e.g ML Engineer"
+              data-filled="true"
+              spellcheck="false"
+              value="ML Engineer"
+              formControlName="roleInProj"
+              [(ngModel)]="projectsForm.roleInProj"
+            />
+          </div>
+          <div class="inputbox-module">
+            <label for="startingYear" class="inputbox-label"
+              >Starting Year</label
+            ><input
+              id="startingYear"
+              class="inputbox-input"
+              placeholder="e.g 2017"
+              data-filled="true"
+              spellcheck="false"
+              value="2019"
+              formControlName="startingYear"
+              [(ngModel)]="projectsForm.startingYear"
+            />
+          </div>
+          <div class="inputbox-module">
+            <label for="endingYear" class="inputbox-label">Ending Year</label
+            ><input
+              id="endingYear"
+              class="inputbox-input"
+              placeholder="e.g 2018"
+              data-filled="false"
+              spellcheck="false"
+              value=""
+              data-filled="true"
+              formControlName="endingYear"
+              [(ngModel)]="projectsForm.endingYear"
+            />
+            <p class="InputBox-module--caption--2L2uS">
+              Leave it blank to mark it as Present
+            </p>
+          </div>
+          <div class="inputbox-module">
+            <label for="point1" class="inputbox-label">Point 1</label
+            ><textarea
+              id="point1"
+              class="inputbox-input"
+              placeholder="e.g Create functional and technical aplications documents"
+              data-filled="true"
+              spellcheck="false"
+              formControlName="point1"
+              [(ngModel)]="projectsForm.point1"
+            >{{projectsForm.point1}}</textarea>
+          </div>
+          <div class="inputbox-module">
+            <label id="point2" class="inputbox-label">Point 2</label
+            ><textarea
+              id="point2"
+              class="inputbox-input"
+              placeholder="e.g Create functional and technical aplications documents"
+              data-filled="true"
+              spellcheck="false"
+              formControlName="point2"
+              [(ngModel)]="projectsForm.point2"
+              >{{ projectsForm.point2 }}</textarea
+            >
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="editBtnProperty == 'education'">
+      <div class="experience" [formGroup]="education">
+        <div class="inputbox-module">
+          <label for="title" class="inputbox-label">Title</label
+          ><input
+            id="title"
+            class="inputbox-input"
+            placeholder="e.g Work Experience"
+            data-filled="true"
+            spellcheck="false"
+            value="Experience"
+            formControlName="title"
+            [(ngModel)]="educationForm.title"
+          />
+        </div>
+        <div>
+          <br />
+          <div class="inputbox-module">
+            <label for="organization" class="inputbox-label"
+              >Organisation / University / Project Name</label
+            ><input
+              id="organization"
+              class="inputbox-input"
+              placeholder="e.g OzoneAI"
+              data-filled="true"
+              spellcheck="false"
+              value="OzoneAI"
+              formControlName="organization"
+              [(ngModel)]="educationForm.organization"
+            />
+          </div>
+          <div class="inputbox-module">
+            <label id="roleInProj" class="inputbox-label"
+              >Role / Responsibility / Course</label
+            ><input
+              id="roleInProj"
+              class="inputbox-input"
+              placeholder="e.g ML Engineer"
+              data-filled="true"
+              spellcheck="false"
+              value="ML Engineer"
+              formControlName="roleInProj"
+              [(ngModel)]="educationForm.roleInProj"
+            />
+          </div>
+          <div class="inputbox-module">
+            <label for="startingYear" class="inputbox-label"
+              >Starting Year</label
+            ><input
+              id="startingYear"
+              class="inputbox-input"
+              placeholder="e.g 2017"
+              data-filled="true"
+              spellcheck="false"
+              value="2019"
+              formControlName="startingYear"
+              [(ngModel)]="educationForm.startingYear"
+            />
+          </div>
+          <div class="inputbox-module">
+            <label for="endingYear" class="inputbox-label">Ending Year</label
+            ><input
+              id="endingYear"
+              class="inputbox-input"
+              placeholder="e.g 2018"
+              data-filled="false"
+              spellcheck="false"
+              value=""
+              data-filled="true"
+              formControlName="endingYear"
+              [(ngModel)]="educationForm.endingYear"
+            />
+            <p class="InputBox-module--caption--2L2uS">
+              Leave it blank to mark it as Present
+            </p>
+          </div>
+          <div class="inputbox-module">
+            <label for="point1" class="inputbox-label">Point 1</label
+            ><textarea
+              id="point1"
+              class="inputbox-input"
+              placeholder="e.g Create functional and technical aplications documents"
+              data-filled="true"
+              spellcheck="false"
+              formControlName="point1"
+              [(ngModel)]="educationForm.point1"
+            >{{educationForm.point1}}</textarea>
+          </div>
+          <div class="inputbox-module">
+            <label id="point2" class="inputbox-label">Point 2</label
+            ><textarea
+              id="point2"
+              class="inputbox-input"
+              placeholder="e.g Create functional and technical aplications documents"
+              data-filled="true"
+              spellcheck="false"
+              formControlName="point2"
+              [(ngModel)]="educationForm.point2"
+              >{{ educationForm.point2 }}</textarea
+            >
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="editBtnProperty">
+      <div class="EditorForm-module--discardBtn--1burE">
+        <button
+          class="LinkButton-module--btn--3Ebv6 LinkButton-module--dark--2ISGM"
+        >
+          Discard
+        </button>
+      </div>
+    </ng-container>
+  </form>
+</div>

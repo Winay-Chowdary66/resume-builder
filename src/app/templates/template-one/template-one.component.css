@@ -1,0 +1,392 @@
+/*template 1*/
+
+
+
+/*template header section*/
+
+.Template-module--main {
+  /* background-color: #29292b; */
+  display: flex;
+  /* flex-direction: row; */
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  /* min-height: 100%; */
+  /* position: relative; */
+  /* width: 100%; */
+}
+
+.Template-module--headSection--Tz2WY {
+  align-items: center;
+  color: #29292b;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  /* justify-content: flex-end; */
+  margin: 10px 0;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+.Template-module--imageBox--3ImyO {
+  position: relative;
+  right: -25px;
+}
+
+.Template-module--picture--3A_Nh {
+  align-items: center;
+  background: #fff;
+  border: 4px solid #29292b;
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+  justify-content: center;
+  width: 140px;
+}
+
+.Template-module--picture--3A_Nh {
+  align-items: center;
+  background: #fff;
+  border: 4px solid #29292b;
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+  justify-content: center;
+  width: 140px;
+}
+
+.Template-module--picture--3A_Nh p {
+  color: #ff9c01;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.Template-module--titleSectionBox--1ZLl3 {
+  align-items: center;
+  background-color: #ff9c01;
+  display: flex;
+  padding: 20px 0 20px 50px;
+  width: 31.15%;
+}
+input,
+textarea {
+  font-family: Mulish;
+}
+
+.Template-module--main h2 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 20px;
+  text-transform: capitalize;
+}
+
+.Template-module--main h1 {
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.Template-module--titleSection--1X_Jj {
+  padding-right: 20px;
+  position: relative;
+}
+
+.Template-module--main p,
+h5 {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 16px;
+}
+/*template left section*/
+
+.resume-skills {
+  width: 60%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-skills .details {
+  position: relative;
+  /* background-color: azure; */
+  width: 100%;
+  height: 100%;
+  margin-top: 180px;
+  /* display: grid; */
+  /* padding: 20px; */
+}
+
+.resume-skills .details .template-block {
+  position: relative;
+}
+
+.details .action-buttons-module {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 30px;
+  top: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 10;
+}
+
+.action-buttons-module {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0px;
+  top: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 10;
+}
+
+.action-buttons-module .action-button-expansion {
+  border-radius: inherit;
+  width: 0;
+}
+
+.action-buttons-module .action-button-expansion .delete-button {
+  align-items: center;
+  background-color: var(--redColor);
+  border: none;
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 20px;
+  justify-content: center;
+  margin: 1px;
+  opacity: 1;
+  padding: 0;
+  width: 20px;
+  cursor: pointer;
+}
+
+svg:not(:root).svg-inline--fa {
+  overflow: visible;
+}
+
+.svg-inline--fa.fa-w-14 {
+  width: 0.875em;
+}
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+
+.edit-button {
+  align-items: center;
+  background-color: var(--primaryColor);
+  border: none;
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 20px;
+  justify-content: center;
+  margin: 1px;
+  opacity: 1;
+  padding: 0;
+  width: 20px;
+  cursor: pointer;
+}
+
+.details .skills-title {
+  display: grid;
+  place-items: center;
+  /* background-color: yellow; */
+  /* padding: 5px; */
+  width: 40ch;
+  background-color: #ff9c01;
+  color: #29292b;
+  letter-spacing: 1px;
+  /* margin-right: 15px; */
+  padding: 6px;
+  text-align: center;
+}
+
+.details .common-color {
+  color: #a09077;
+}
+
+.details .common-style {
+  color: #555;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 18px;
+}
+.resume-skills .details .experience {
+  letter-spacing: 0.5px;
+  margin: 15px;
+}
+
+.details .organization {
+  color: #413f40;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.details .description .des-cont {
+  align-items: baseline;
+  display: flex;
+  flex-direction: row;
+  margin: 5px 0;
+}
+
+.details .description .bullet {
+  background-color: #ff9c01;
+  border-radius: 100%;
+  margin-right: 8px;
+  padding: 2px;
+}
+
+.details .description p {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 16px;
+}
+
+.resume-skills .details .projects {
+  padding: 15px;
+}
+
+.resume-skills .details .education {
+  padding: 15px;
+}
+
+/*template right section*/
+
+.Template-module--rightSection--1ptdb {
+  background-color: #29292b;
+  height: auto;
+  /* padding: 0 2%; */
+  width: 40%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.Template-module--contactSection--cSad_ {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 180px;
+  position: relative;
+}
+
+.Template-module--contactSection--cSad_ h3,
+.Template-module--skillsSection--3VxJq h3 {
+  border: 2px solid #ff9c01;
+  color: #fff;
+  margin-bottom: 10px;
+  padding: 4px 0;
+  text-align: center;
+  width: 85%;
+}
+
+.Template-module--contactBox--9DYck h5 {
+  color: #fff;
+  margin-left: 10px;
+}
+
+.Template-module--main--3e8tC p,
+h5 {
+  color: #555;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 18px;
+}
+
+.Template-module--main h3,
+h4 {
+  font-size: 13px;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.Template-module--contactInfos--3tSNV,
+.Template-module--skills--32Ui6 {
+  width: 80%;
+}
+
+.Template-module--contactBox--9DYck {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+}
+
+.Template-module--skillsSection--3VxJq {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+  position: relative;
+}
+
+.Template-module--skillsItem--2tV0L {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.Template-module--skillsItem--2tV0L h5 {
+  color: #fff;
+}
+
+.Template-module--levels--76gYA {
+  width: 40px;
+}
+
+.DotLevel-module--dot--2t0WU[data-active="true"] {
+  opacity: 1;
+}
+.DotLevel-module--dot--2t0WU {
+  background: #ff9c01;
+  border-radius: 100%;
+  opacity: 0.4;
+  padding: 3px;
+}
+
+.DotLevel-module--dotLevel--3J28k {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+  width: 100%;
+}

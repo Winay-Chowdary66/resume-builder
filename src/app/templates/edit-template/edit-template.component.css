@@ -1,0 +1,93 @@
+/* Editor Section starts*/
+
+.form-editor-container {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 6px 15px #00000029;
+  height: auto;
+  margin: 20px 10px;
+  max-height: 842px;
+  min-width: 320px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 5%;
+  width: 100%;
+}
+
+/* .form-editor-container p {
+  color: #fffffff2;
+  font-family: "Poppins";
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 25% auto auto;
+  opacity: 0.2;
+  text-align: center;
+  width: 300px;
+} */
+
+.inputbox-module {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.inputbox-label {
+  color: #1f1f1f;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+  opacity: 0.95;
+}
+
+.inputbox-input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #c5c5c5;
+  font-size: 0.9rem;
+  font-weight: 600;
+  height: 40px;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+  resize: vertical;
+  width: 100%;
+}
+
+.inputbox-input[data-filled="true"] {
+  border-bottom-color: var(--secondaryColor);
+  color: var(--secondaryColor);
+}
+
+.EditorForm-module--discardBtn--1burE {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.EditorForm-module--discardBtn--1burE>* {
+    border-radius: 4px;
+    opacity: .6;
+}
+
+.LinkButton-module--dark--2ISGM {
+    color: var(--primaryColor);
+}
+.LinkButton-module--btn--3Ebv6 {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: .9rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+    margin: 0 15px;
+}
+
+.InputBox-module--caption--2L2uS {
+    color: #a5a5a5;
+    font-size: .8rem;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* Editor section finishes */
