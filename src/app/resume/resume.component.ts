@@ -11,12 +11,13 @@ import { Router } from '@angular/router';
 })
 export class ResumeComponent implements OnInit {
   templateId: any;
-
+  public text = '';
+  templateModel = { edit: 'edit' , view: 'view' };
   constructor(
     private activatedRoute: ActivatedRoute,
     private title: Title,
     private appComp: AppComponent,
-    private router: Router,
+    private router: Router
   ) {
     this.appComp.loadMe();
   }
