@@ -1,5 +1,5 @@
-<div class="form-editor-container">
-  <!-- <p>Click edit button of any block in the template.</p> -->
+<p class="empty-text" *ngIf="!editBtnProperty">Click edit button of any block in the template.</p>
+<div class="form-editor-container" *ngIf="editBtnProperty">
   <form [formGroup]="resumeForm" *ngIf="editBtnProperty">
     <ng-container *ngIf="editBtnProperty=='profile'">
       <div class="inputbox-module">
@@ -349,7 +349,8 @@
       <div class="EditorForm-module--discardBtn--1burE">
         <button
           class="LinkButton-module--btn--3Ebv6 LinkButton-module--dark--2ISGM"
-        >
+          (click)="discardForm()"
+          >
           Discard
         </button>
       </div>
