@@ -49,7 +49,7 @@ export class TemplateOneComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void {
-    console.log(this.projectsForm);
+    // console.log(this.projectsForm);
     
   }
 

@@ -129,7 +129,7 @@ export class EditTemplateComponent implements OnInit, DoCheck {
     this._tempService.sendFirstName(this.firstName);
     this._tempService.sendJobRole(this.jobRole);
     this._tempService.sendExperienceForm(this.experienceForm);
-    console.log(this.editBtnProperty);
+    // console.log(this.editBtnProperty);
     if(this.editBtnProperty){
       if(this.editBtnProperty === 'experience' || this.editBtnProperty === 'projects' || this.editBtnProperty === 'education'){
         this.isExpOrProjOrEdu = !this.isExpOrProjOrEdu;
@@ -138,13 +138,17 @@ export class EditTemplateComponent implements OnInit, DoCheck {
     }
     this._tempService.sendProjectsForm(this.projectsForm);
     this._tempService.sendEducationForm(this.educationForm);
-  
+    this.discardForm();
   }
 
-  get formGroupName(){
-    return this.editBtnProperty == 'experience' ? this.experience : this.editBtnProperty == 'projects' ? this.projects: this.editBtnProperty == 'education' ? this.education : new FormGroup({})
-    // else return this.experience;
+  resetForm() {
+    this.resumeForm.reset();
   }
+
+  discardForm(){
+    this.editBtnProperty = '';
+  }
+
 }
 
 export class CommonForm {

@@ -82,14 +82,14 @@
   font-family: sans-serif;
 }
 
-/* #editor-form-page #form-container {
+#editor-form-page #form-container {
   background: none;
   border: 2px dashed #ffffff6b;
   box-shadow: none;
   height: auto;
   margin-top: 20px;
-  overflow: hidden;
-} */
+  /* overflow: hidden; */
+}
 
 /* #editor-form-page #form-container p {
   color: #fffffff2;

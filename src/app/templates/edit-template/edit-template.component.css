@@ -5,7 +5,8 @@
   border-radius: 5px;
   box-shadow: 0 6px 15px #00000029;
   height: auto;
-  margin: 20px 10px;
+  /* margin: 20px 10px; */
+  border: 2px solid #fff;
   max-height: 842px;
   min-width: 320px;
   overflow-x: hidden;
@@ -14,17 +15,17 @@
   width: 100%;
 }
 
-/* .form-editor-container p {
+.empty-text {
   color: #fffffff2;
   font-family: "Poppins";
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1px;
-  margin: 25% auto auto;
+  margin: 25%;
   opacity: 0.2;
   text-align: center;
   width: 300px;
-} */
+}
 
 .inputbox-module {
   display: flex;
