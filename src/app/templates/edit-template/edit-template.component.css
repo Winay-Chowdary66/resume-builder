@@ -15,7 +15,17 @@
   width: 100%;
 }
 
-.empty-text {
+.empty-container {
+  background: none;
+  border: 2px dashed #ffffff6b;
+  box-shadow: none;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 5px;
+  /* overflow: hidden; */
+}
+
+.empty-container .empty-text {
   color: #fffffff2;
   font-family: "Poppins";
   font-size: 1rem;

@@ -1,6 +1,8 @@
-<p class="empty-text" *ngIf="!editBtnProperty">
-  Click edit button of any block in the template.
-</p>
+<div class="empty-container" *ngIf="!editBtnProperty">
+  <p class="empty-text">
+    Click edit button of any block in the template.
+  </p>
+</div>
 <div class="form-editor-container" *ngIf="editBtnProperty">
   <form [formGroup]="resumeForm" *ngIf="editBtnProperty">
     <ng-container *ngIf="editBtnProperty == 'profile'">
