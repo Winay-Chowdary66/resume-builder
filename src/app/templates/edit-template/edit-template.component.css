@@ -21,7 +21,7 @@
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1px;
-  margin: 25%;
+  margin: 35% 25%;
   opacity: 0.2;
   text-align: center;
   width: 300px;
@@ -66,29 +66,57 @@
   text-align: center;
 }
 
-.EditorForm-module--discardBtn--1burE>* {
-    border-radius: 4px;
-    opacity: .6;
+.EditorForm-module--discardBtn--1burE > * {
+  border-radius: 4px;
+  opacity: 0.6;
 }
 
 .LinkButton-module--dark--2ISGM {
-    color: var(--primaryColor);
+  color: var(--primaryColor);
 }
 .LinkButton-module--btn--3Ebv6 {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: .9rem;
-    font-weight: 600;
-    letter-spacing: .5px;
-    margin: 0 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0 15px;
 }
 
 .InputBox-module--caption--2L2uS {
-    color: #a5a5a5;
-    font-size: .8rem;
-    font-weight: 600;
-    margin-top: 5px;
+  color: #a5a5a5;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.inputbox-inputrange {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.inputrange-btn {
+  align-items: center;
+  background-color: #fff;
+  border: none;
+  border-radius: 100%;
+  color: var(--secondaryColor);
+  cursor: pointer;
+  display: flex;
+  font-size: 10px;
+  font-weight: 700;
+  height: 20px;
+  justify-content: center;
+  margin-right: 5px;
+  outline: none;
+  width: 20px;
+}
+
+.inputrange-btn[data-active="true"] {
+  background-color: var(--secondaryColor);
+  color: #fff;
 }
 
 /* Editor section finishes */

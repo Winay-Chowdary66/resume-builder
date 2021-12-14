@@ -54,6 +54,20 @@ export class EditTemplateComponent implements OnInit, DoCheck {
         []
       ),
     }),
+    contact: new FormGroup({
+      address: new FormControl('AP, India- 522124', []),
+      email: new FormControl('vinayannangi.123@gmail.com'),
+      phone: new FormControl('+91 9492117926'),
+      site: new FormControl('github.com/winay-chowdary66')
+    }),
+    skills: new FormGroup({
+      skill1: new FormControl('Python', []),
+      skill2: new FormControl('Angular', []),
+      skill3: new FormControl('Java', []),
+      skill4: new FormControl('Javascript', []),
+      skill5: new FormControl('MySQL', []),
+      skill6: new FormControl('PHP', []),
+    }),
   });
 
   public firstName = '';
@@ -62,6 +76,20 @@ export class EditTemplateComponent implements OnInit, DoCheck {
   public projectsForm: ExperienceForm = new CommonForm()
 
   public educationForm: ExperienceForm = new CommonForm()
+  public contactForm = {
+    address: 'AP, India- 522124',
+    email: '',
+    phone: '+91 9492117926',
+    site: 'github.com/winay-chowdary66',
+  }
+  public skillsForm = {
+    skill1: 'Python',
+    skill2: 'Java',
+    skill3: 'C++',
+    skill4: 'C',
+    skill5: 'HTML',
+    skill6: 'CSS',
+  }
 
   public editBtnProperty = '';
 
@@ -81,6 +109,14 @@ export class EditTemplateComponent implements OnInit, DoCheck {
 
   get education() {
     return this.resumeForm.get('education') as FormGroup;
+  }
+
+  get contact() {
+    return this.resumeForm.get('contact') as FormGroup;
+  }
+
+  get skills() {
+    return this.resumeForm.get('skills') as FormGroup;
   }
 
   getExpControl(name: string) {
@@ -117,7 +153,19 @@ export class EditTemplateComponent implements OnInit, DoCheck {
     this.educationForm.endingYear = this.resumeForm.get('education')?.get('endingYear')?.value;
     this.educationForm.point1 = this.resumeForm.get('education')?.get('point1')?.value;
     this.educationForm.point2 = this.resumeForm.get('education')?.get('point2')?.value;
-        
+    
+    this.contactForm.address = this.resumeForm.get('contact')?.get('address')?.value;
+    this.contactForm.email = this.resumeForm.get('contact')?.get('email')?.value;
+    this.contactForm.phone = this.resumeForm.get('contact')?.get('phone')?.value;
+    this.contactForm.site = this.resumeForm.get('contact')?.get('site')?.value;
+
+    this.skillsForm.skill1 = this.resumeForm.get('skills')?.get('skill1')?.value;
+    this.skillsForm.skill2 = this.resumeForm.get('skills')?.get('skill2')?.value;
+    this.skillsForm.skill3 = this.resumeForm.get('skills')?.get('skill3')?.value;
+    this.skillsForm.skill4 = this.resumeForm.get('skills')?.get('skill4')?.value;
+    this.skillsForm.skill5 = this.resumeForm.get('skills')?.get('skill5')?.value;
+    this.skillsForm.skill6 = this.resumeForm.get('skills')?.get('skill6')?.value;
+
     this._tempService.getBtnProperty().subscribe((property) => {
       this.editBtnProperty = property;
     });
@@ -138,6 +186,8 @@ export class EditTemplateComponent implements OnInit, DoCheck {
     }
     this._tempService.sendProjectsForm(this.projectsForm);
     this._tempService.sendEducationForm(this.educationForm);
+    this._tempService.sendContactForm(this.contactForm);
+    this._tempService.sendSkillsForm(this.skillsForm);
     this.discardForm();
   }
 

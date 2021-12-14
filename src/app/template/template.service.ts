@@ -13,6 +13,8 @@ export class TemplateService {
   private _experienceForm = new Subject<ExperienceForm>();
   private _projectsForm = new Subject<ExperienceForm>();
   private _educationForm = new Subject<ExperienceForm>();
+  private _contactForm = new Subject<Object>();
+  private _skillsForm = new Subject<Object>();
   private _btnProperty = new Subject<string>();
 
   url = 'assets/payloads/templates.json';
@@ -58,6 +60,22 @@ export class TemplateService {
 
   getEducationForm(): Observable<ExperienceForm> {
     return this._educationForm.asObservable();
+  }
+
+  sendContactForm(contactForm: Object) {
+    this._contactForm.next(contactForm);
+  }
+
+  getContactForm(): Observable<Object> {
+    return this._contactForm.asObservable();
+  }
+
+  sendSkillsForm(skillsForm: Object) {
+    this._skillsForm.next(skillsForm);
+  }
+
+  getSkillsForm(): Observable<Object> {
+    return this._skillsForm.asObservable();
   }
 
   sendBtnProperty(property: string) {

@@ -1,6 +1,6 @@
 import { Component, DoCheck, Input, OnInit } from '@angular/core';
 import { TemplateService } from 'src/app/template/template.service';
-import {CommonForm} from '../edit-template/edit-template.component';
+import { CommonForm } from '../edit-template/edit-template.component';
 
 @Component({
   selector: 'app-template-one',
@@ -10,17 +10,31 @@ import {CommonForm} from '../edit-template/edit-template.component';
 export class TemplateOneComponent implements OnInit, DoCheck {
   public firstName = '';
   public jobRole = '';
-  public experienceForm: ExperienceForm =new CommonForm();
+  public experienceForm: ExperienceForm = new CommonForm();
   public projectsForm: ExperienceForm = new CommonForm();
   public educationForm: ExperienceForm = new CommonForm();
+  public contactForm:any = {
+    address: 'AP, India- 522124',
+    email: '',
+    phone: '9492117926',
+    site: 'github.com/winay-chowdary66',
+  };
+  public skillsForm:any = {
+    skill1: 'Python',
+    skill2: 'Java',
+    skill3: 'C++',
+    skill4: 'C',
+    skill5: 'HTML',
+    skill6: 'CSS',
+  };
   public editBtnProperty = {
-    "profile": "profile",
-    "experience": "experience",
-    "projects": "projects",
-    "education": "education",
-    "contact": "contact",
-    "skills": "skills",
-  }
+    profile: 'profile',
+    experience: 'experience',
+    projects: 'projects',
+    education: 'education',
+    contact: 'contact',
+    skills: 'skills',
+  };
   constructor(private _tempService: TemplateService) {}
 
   ngOnInit(): void {
@@ -46,11 +60,19 @@ export class TemplateOneComponent implements OnInit, DoCheck {
       if (msg == null) return;
       this.educationForm = msg;
     });
+
+    this._tempService.getContactForm().subscribe((msg) => {
+      if (msg == null) return;
+      this.contactForm = msg;
+    });
+    this._tempService.getSkillsForm().subscribe((msg) => {
+      if (msg == null) return;
+      this.skillsForm = msg;
+    });
   }
 
   ngDoCheck(): void {
     // console.log(this.projectsForm);
-    
   }
 
   sendBtnProperty(property: string) {
