@@ -88,6 +88,7 @@
   box-shadow: none;
   height: auto;
   margin-top: 20px;
+  border-radius: 5px;
   /* overflow: hidden; */
 }
 
@@ -125,7 +126,7 @@
 #editor-form-page #template-view-main #template-container {
   background: #fff;
   border-radius: 5px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
   height: 98%;
   margin: 20px 10px;
   max-height: 920px;

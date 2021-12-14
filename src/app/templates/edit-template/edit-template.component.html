@@ -1,7 +1,9 @@
-<p class="empty-text" *ngIf="!editBtnProperty">Click edit button of any block in the template.</p>
+<p class="empty-text" *ngIf="!editBtnProperty">
+  Click edit button of any block in the template.
+</p>
 <div class="form-editor-container" *ngIf="editBtnProperty">
   <form [formGroup]="resumeForm" *ngIf="editBtnProperty">
-    <ng-container *ngIf="editBtnProperty=='profile'">
+    <ng-container *ngIf="editBtnProperty == 'profile'">
       <div class="inputbox-module">
         <label for="firstName" class="inputbox-label">First Name</label
         ><input
@@ -118,7 +120,8 @@
               spellcheck="false"
               formControlName="point1"
               [(ngModel)]="experienceForm.point1"
-            >{{experienceForm.point1}}</textarea>
+              >{{ experienceForm.point1 }}</textarea
+            >
           </div>
           <div class="inputbox-module">
             <label id="point2" class="inputbox-label">Point 2</label
@@ -222,7 +225,8 @@
               spellcheck="false"
               formControlName="point1"
               [(ngModel)]="projectsForm.point1"
-            >{{projectsForm.point1}}</textarea>
+              >{{ projectsForm.point1 }}</textarea
+            >
           </div>
           <div class="inputbox-module">
             <label id="point2" class="inputbox-label">Point 2</label
@@ -326,7 +330,8 @@
               spellcheck="false"
               formControlName="point1"
               [(ngModel)]="educationForm.point1"
-            >{{educationForm.point1}}</textarea>
+              >{{ educationForm.point1 }}</textarea
+            >
           </div>
           <div class="inputbox-module">
             <label id="point2" class="inputbox-label">Point 2</label
@@ -344,13 +349,190 @@
         </div>
       </div>
     </ng-container>
+    <ng-container *ngIf="editBtnProperty == 'contact'">
+      <div class="contact" [formGroup]="contact">
+        <div class="inputbox-module">
+          <label class="inputbox-label">Address</label
+          ><input
+            class="inputbox-input"
+            placeholder="e.g 3205 Eden Drive, Glen Allen"
+            data-filled="true"
+            spellcheck="false"
+            value="Brooklyn, NY 11222"
+            formControlName="address"
+            [(ngModel)]="contactForm.address"
+          />
+        </div>
+        <div class="inputbox-module">
+          <label class="inputbox-label">Email</label
+          ><input
+            class="inputbox-input"
+            placeholder="e.g oliwil@gmail.com"
+            data-filled="true"
+            spellcheck="false"
+            value="oliwil@email.net"
+            formControlName="email"
+            [(ngModel)]="contactForm.email"
+          />
+        </div>
+        <div class="inputbox-module">
+          <label class="inputbox-label">Phone</label
+          ><input
+            class="inputbox-input"
+            placeholder="e.g 804-931-9418"
+            data-filled="true"
+            spellcheck="false"
+            value="804-931-9418"
+            formControlName="phone"
+            [(ngModel)]="contactForm.phone"
+          />
+        </div>
+        <div class="inputbox-module">
+          <label class="inputbox-label">Personal Site or Github Link</label
+          ><input
+            class="inputbox-input"
+            placeholder="e.g github.com/stephen"
+            data-filled="true"
+            spellcheck="false"
+            value="github.com/oliwil"
+            formControlName="site"
+            [(ngModel)]="contactForm.site"
+          />
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="editBtnProperty == 'skills'">
+      <div class="skills" [formGroup]="skills">
+        <div class="inputbox-module">
+          <label class="inputbox-label">Skill 1</label
+          ><input
+            class="inputbox-input"
+            placeholder="Project Management"
+            data-filled="true"
+            spellcheck="false"
+            value="Python"
+            formControlName="skill1"
+            [(ngModel)]="skillsForm.skill1"
+          />
+        </div>
+        <div class="inputbox-inputrange">
+          <button class="inputrange-btn" data-active="false" role="1">1</button
+          ><button class="inputrange-btn" data-active="false" role="2">2</button
+          ><button class="inputrange-btn" data-active="true" role="3">3</button
+          ><button class="inputrange-btn" data-active="false" role="4">
+            4
+          </button>
+        </div>
+        <div class="inputbox-module">
+          <label class="inputbox-label">Skill 2</label
+          ><input
+            class="inputbox-input"
+            placeholder="Project Management"
+            data-filled="true"
+            spellcheck="false"
+            value="Tensorflow"
+            formControlName="skill2"
+            [(ngModel)]="skillsForm.skill2"
+          />
+        </div>
+        <div class="inputbox-inputrange">
+          <button class="inputrange-btn" data-active="false" role="1">1</button
+          ><button class="inputrange-btn" data-active="true" role="2">2</button
+          ><button class="inputrange-btn" data-active="false" role="3">3</button
+          ><button class="inputrange-btn" data-active="false" role="4">
+            4
+          </button>
+        </div>
+        <div class="inputbox-module">
+          <label class="inputbox-label">Skill 3</label
+          ><input
+            class="inputbox-input"
+            placeholder="Project Management"
+            data-filled="true"
+            spellcheck="false"
+            value="Keras"
+            formControlName="skill3"
+            [(ngModel)]="skillsForm.skill3"
+          />
+        </div>
+        <div class="inputbox-inputrange">
+          <button class="inputrange-btn" data-active="true" role="1">1</button
+          ><button class="inputrange-btn" data-active="false" role="2">2</button
+          ><button class="inputrange-btn" data-active="false" role="3">3</button
+          ><button class="inputrange-btn" data-active="false" role="4">
+            4
+          </button>
+        </div>
+        <div class="inputbox-module">
+          <label class="inputbox-label">Skill 4</label
+          ><input
+            class="inputbox-input"
+            placeholder="Project Management"
+            data-filled="true"
+            spellcheck="false"
+            value="Django"
+            formControlName="skill4"
+            [(ngModel)]="skillsForm.skill4"
+          />
+        </div>
+        <div class="inputbox-inputrange">
+          <button class="inputrange-btn" data-active="false" role="1">1</button
+          ><button class="inputrange-btn" data-active="true" role="2">2</button
+          ><button class="inputrange-btn" data-active="false" role="3">3</button
+          ><button class="inputrange-btn" data-active="false" role="4">
+            4
+          </button>
+        </div>
+        <div class="inputbox-module">
+          <label class="inputbox-label">Skill 5</label
+          ><input
+            class="inputbox-input"
+            placeholder="Project Management"
+            data-filled="true"
+            spellcheck="false"
+            value="MongoDB"
+            formControlName="skill5"
+            [(ngModel)]="skillsForm.skill5"
+          />
+        </div>
+        <div class="inputbox-inputrange">
+          <button class="inputrange-btn" data-active="false" role="1">1</button
+          ><button class="inputrange-btn" data-active="false" role="2">2</button
+          ><button class="inputrange-btn" data-active="true" role="3">3</button
+          ><button class="inputrange-btn" data-active="false" role="4">
+            4
+          </button>
+        </div>
+        <div class="inputbox-module">
+          <label class="inputbox-label">Skill 6</label
+          ><input
+            class="inputbox-input"
+            placeholder="Project Management"
+            data-filled="true"
+            spellcheck="false"
+            value="PostgreSQL"
+            formControlName="skill6"
+            [(ngModel)]="skillsForm.skill6"
+          />
+        </div>
+        <div class="inputbox-inputrange">
+          <button class="inputrange-btn" data-active="false" role="1">1</button
+          ><button class="inputrange-btn" data-active="false" role="2">2</button
+          ><button class="inputrange-btn" data-active="true" role="3">3</button
+          ><button class="inputrange-btn" data-active="false" role="4">
+            4
+          </button>
+        </div>
+      </div>
+    </ng-container>
 
     <ng-container *ngIf="editBtnProperty">
       <div class="EditorForm-module--discardBtn--1burE">
         <button
           class="LinkButton-module--btn--3Ebv6 LinkButton-module--dark--2ISGM"
           (click)="discardForm()"
-          >
+        >
           Discard
         </button>
       </div>
