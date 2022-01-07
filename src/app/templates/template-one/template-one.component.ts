@@ -10,6 +10,7 @@ import {
   QueryList,
   SimpleChange,
   SimpleChanges,
+  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { TemplateService } from 'src/app/template/template.service';
@@ -65,9 +66,28 @@ export class TemplateOneComponent
   @ViewChildren('skillOpct5') skillOpct5!: QueryList<ElementRef>;
   @ViewChildren('skillOpct6') skillOpct6!: QueryList<ElementRef>;
 
+
+  hasTemp1ProfPic = false;
+  profPicSrc: any;
+
+  @ViewChild('profPicInp', {static: true})
+  profPicInp!: ElementRef;
+
   constructor(private _tempService: TemplateService) {}
 
   ngOnInit(): void {
+
+    //set has profile pic to true if already present
+    if (localStorage.getItem('Template-1')) {
+      this.hasTemp1ProfPic = true;
+      //Load Profile Pic from Localstorage
+      this.profPicSrc = JSON.parse(
+        localStorage.getItem('Template-1') || '{}'
+      ).profilePic;
+    }
+
+    
+
     this._tempService.getFirstName().subscribe((msg) => {
       if (msg == '') return;
       this.firstName = msg;
@@ -181,6 +201,21 @@ export class TemplateOneComponent
 
   sendBtnProperty(property: string) {
     this._tempService.sendBtnProperty(property);
+  }
+
+  callFileUpload() {
+    this.profPicInp.nativeElement.click();
+  }
+
+  updateProfPic(profPicInput: any) {
+    this.hasTemp1ProfPic = true;
+    let file : File = profPicInput.files[0];
+    let fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      localStorage.setItem('Template-1', JSON.stringify({"profilePic": fileReader.result}));
+      this.profPicSrc = String(fileReader.result);
+    }
+    fileReader.readAsDataURL(file);
   }
 }
 
