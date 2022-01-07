@@ -66,6 +66,14 @@
   margin-top: 10px;
 }
 
+.Template-module--picture--3A_Nh img {
+    border-radius: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+}
+
 .Template-module--titleSectionBox--1ZLl3 {
   align-items: center;
   background-color: #ff9c01;
@@ -199,7 +207,7 @@ svg:not(:root).svg-inline--fa {
 }
 .svg-inline--fa {
   display: inline-block;
-  font-size: inherit;
+  font-size: xxx-large;
   height: 1em;
   overflow: visible;
   vertical-align: -0.125em;
