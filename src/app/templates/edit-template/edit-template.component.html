@@ -1,11 +1,12 @@
 <div class="empty-container" *ngIf="!editBtnProperty">
-  <p class="empty-text">
-    Click edit button of any block in the template.
-  </p>
+  <p class="empty-text">Click edit button of any block in the template.</p>
 </div>
-<div class="form-editor-container" *ngIf="editBtnProperty">
-  <form [formGroup]="resumeForm" *ngIf="editBtnProperty">
-    <ng-container *ngIf="editBtnProperty == 'profile'">
+<div
+  class="form-editor-container"
+  [style.display]="editBtnProperty ? 'block' : 'none'"
+>
+  <form [formGroup]="resumeForm">
+    <div [style.display]="editBtnProperty == 'profile'? 'block' : 'none'">
       <div class="inputbox-module">
         <label for="firstName" class="inputbox-label">First Name</label
         ><input
@@ -34,9 +35,8 @@
           [(ngModel)]="jobRole"
         />
       </div>
-    </ng-container>
-
-    <ng-container *ngIf="editBtnProperty == 'experience'">
+    </div>
+    <div [style.display]="editBtnProperty == 'experience'? 'block' : 'none'">
       <div class="experience" [formGroup]="experience">
         <div class="inputbox-module">
           <label for="title" class="inputbox-label">Title</label
@@ -140,8 +140,8 @@
           </div>
         </div>
       </div>
-    </ng-container>
-    <ng-container *ngIf="editBtnProperty == 'projects'">
+    </div>
+    <div [style.display]="editBtnProperty == 'projects'? 'block' : 'none'">
       <div class="experience" [formGroup]="projects">
         <div class="inputbox-module">
           <label for="title" class="inputbox-label">Title</label
@@ -245,8 +245,8 @@
           </div>
         </div>
       </div>
-    </ng-container>
-    <ng-container *ngIf="editBtnProperty == 'education'">
+    </div>
+    <div [style.display]="editBtnProperty == 'education'? 'block' : 'none'">
       <div class="experience" [formGroup]="education">
         <div class="inputbox-module">
           <label for="title" class="inputbox-label">Title</label
@@ -350,8 +350,8 @@
           </div>
         </div>
       </div>
-    </ng-container>
-    <ng-container *ngIf="editBtnProperty == 'contact'">
+    </div>
+    <div [style.display]="editBtnProperty == 'contact'? 'block' : 'none'">
       <div class="contact" [formGroup]="contact">
         <div class="inputbox-module">
           <label class="inputbox-label">Address</label
@@ -402,9 +402,12 @@
           />
         </div>
       </div>
-    </ng-container>
-
-    <ng-container *ngIf="editBtnProperty == 'skills'">
+    </div>
+    <div
+      [style.display]="
+        editBtnProperty == 'skills' ? 'block' : 'none'
+      "
+    >
       <div class="skills" [formGroup]="skills">
         <div class="inputbox-module">
           <label class="inputbox-label">Skill 1</label
@@ -419,12 +422,10 @@
           />
         </div>
         <div class="inputbox-inputrange">
-          <button class="inputrange-btn" data-active="false" role="1">1</button
-          ><button class="inputrange-btn" data-active="false" role="2">2</button
-          ><button class="inputrange-btn" data-active="true" role="3">3</button
-          ><button class="inputrange-btn" data-active="false" role="4">
-            4
-          </button>
+          <button class="inputrange-btn" #skillBtn1 value="1">1</button
+          ><button class="inputrange-btn" #skillBtn1 value="2">2</button
+          ><button class="inputrange-btn" #skillBtn1 value="3">3</button
+          ><button class="inputrange-btn" #skillBtn1 value="4">4</button>
         </div>
         <div class="inputbox-module">
           <label class="inputbox-label">Skill 2</label
@@ -439,12 +440,10 @@
           />
         </div>
         <div class="inputbox-inputrange">
-          <button class="inputrange-btn" data-active="false" role="1">1</button
-          ><button class="inputrange-btn" data-active="true" role="2">2</button
-          ><button class="inputrange-btn" data-active="false" role="3">3</button
-          ><button class="inputrange-btn" data-active="false" role="4">
-            4
-          </button>
+          <button class="inputrange-btn" #skillBtn2 value="1">1</button
+          ><button class="inputrange-btn" #skillBtn2 value="2">2</button
+          ><button class="inputrange-btn" #skillBtn2 value="3">3</button
+          ><button class="inputrange-btn" #skillBtn2 value="4">4</button>
         </div>
         <div class="inputbox-module">
           <label class="inputbox-label">Skill 3</label
@@ -459,12 +458,10 @@
           />
         </div>
         <div class="inputbox-inputrange">
-          <button class="inputrange-btn" data-active="true" role="1">1</button
-          ><button class="inputrange-btn" data-active="false" role="2">2</button
-          ><button class="inputrange-btn" data-active="false" role="3">3</button
-          ><button class="inputrange-btn" data-active="false" role="4">
-            4
-          </button>
+          <button class="inputrange-btn" #skillBtn3 value="1">1</button
+          ><button class="inputrange-btn" #skillBtn3 value="2">2</button
+          ><button class="inputrange-btn" #skillBtn3 value="3">3</button
+          ><button class="inputrange-btn" #skillBtn3 value="4">4</button>
         </div>
         <div class="inputbox-module">
           <label class="inputbox-label">Skill 4</label
@@ -479,12 +476,10 @@
           />
         </div>
         <div class="inputbox-inputrange">
-          <button class="inputrange-btn" data-active="false" role="1">1</button
-          ><button class="inputrange-btn" data-active="true" role="2">2</button
-          ><button class="inputrange-btn" data-active="false" role="3">3</button
-          ><button class="inputrange-btn" data-active="false" role="4">
-            4
-          </button>
+          <button class="inputrange-btn" #skillBtn4 value="1">1</button
+          ><button class="inputrange-btn" #skillBtn4 value="2">2</button
+          ><button class="inputrange-btn" #skillBtn4 value="3">3</button
+          ><button class="inputrange-btn" #skillBtn4 value="4">4</button>
         </div>
         <div class="inputbox-module">
           <label class="inputbox-label">Skill 5</label
@@ -499,12 +494,10 @@
           />
         </div>
         <div class="inputbox-inputrange">
-          <button class="inputrange-btn" data-active="false" role="1">1</button
-          ><button class="inputrange-btn" data-active="false" role="2">2</button
-          ><button class="inputrange-btn" data-active="true" role="3">3</button
-          ><button class="inputrange-btn" data-active="false" role="4">
-            4
-          </button>
+          <button class="inputrange-btn" #skillBtn5 value="1">1</button
+          ><button class="inputrange-btn" #skillBtn5 value="2">2</button
+          ><button class="inputrange-btn" #skillBtn5 value="3">3</button
+          ><button class="inputrange-btn" #skillBtn5 value="4">4</button>
         </div>
         <div class="inputbox-module">
           <label class="inputbox-label">Skill 6</label
@@ -519,17 +512,15 @@
           />
         </div>
         <div class="inputbox-inputrange">
-          <button class="inputrange-btn" data-active="false" role="1">1</button
-          ><button class="inputrange-btn" data-active="false" role="2">2</button
-          ><button class="inputrange-btn" data-active="true" role="3">3</button
-          ><button class="inputrange-btn" data-active="false" role="4">
-            4
-          </button>
+          <button class="inputrange-btn" #skillBtn6 value="1">1</button
+          ><button class="inputrange-btn" #skillBtn6 value="2">2</button
+          ><button class="inputrange-btn" #skillBtn6 value="3">3</button
+          ><button class="inputrange-btn" #skillBtn6 value="4">4</button>
         </div>
       </div>
-    </ng-container>
+    </div>
 
-    <ng-container *ngIf="editBtnProperty">
+    <div *ngIf="editBtnProperty">
       <div class="EditorForm-module--discardBtn--1burE">
         <button
           class="LinkButton-module--btn--3Ebv6 LinkButton-module--dark--2ISGM"
@@ -538,6 +529,6 @@
           Discard
         </button>
       </div>
-    </ng-container>
+    </div>
   </form>
 </div>
