@@ -16,6 +16,13 @@ export class TemplateService {
   private _contactForm = new Subject<Object>();
   private _skillsForm = new Subject<Object>();
   private _btnProperty = new Subject<string>();
+  private _skill1Value = new Subject<string>();
+  private _skill2Value = new Subject<string>();
+  private _skill3Value = new Subject<string>();
+  private _skill4Value = new Subject<string>();
+  private _skill5Value = new Subject<string>();
+  private _skill6Value = new Subject<string>();
+
 
   url = 'assets/payloads/templates.json';
   constructor(private httpClient: HttpClient) {}
@@ -84,5 +91,53 @@ export class TemplateService {
 
   getBtnProperty(): Observable<string> {
     return this._btnProperty.asObservable();
+  }
+
+  getSkill1Value(): Observable<string> {
+    return this._skill1Value.asObservable();
+  }
+
+  sendSkill1Value(value: string) {
+    this._skill1Value.next(value);
+  }
+
+  getSkill2Value(): Observable<string> {
+    return this._skill2Value.asObservable();
+  }
+
+  sendSkill2Value(value: string) {
+    this._skill2Value.next(value);
+  }
+
+  getSkill3Value(): Observable<string> {
+    return this._skill3Value.asObservable();
+  }
+
+  sendSkill3Value(value: string) {
+    this._skill3Value.next(value);
+  }
+
+  getSkill4Value(): Observable<string> {
+    return this._skill4Value.asObservable();
+  }
+
+  sendSkill4Value(value: string) {
+    this._skill4Value.next(value);
+  }
+
+  getSkill5Value(): Observable<string> {
+    return this._skill5Value.asObservable();
+  }
+
+  sendSkill5Value(value: string) {
+    this._skill5Value.next(value);
+  }
+
+  getSkill6Value(): Observable<string> {
+    return this._skill6Value.asObservable();
+  }
+
+  sendSkill6Value(value: string) {
+    this._skill6Value.next(value);
   }
 }
