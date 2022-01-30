@@ -47,6 +47,16 @@
   cursor: pointer;
 }
 
+button {
+  border: none;
+  background-color: #11e8a1;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 #resume-template #editor-form-page {
   column-gap: 5%;
   display: flex;

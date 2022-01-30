@@ -16,6 +16,7 @@ import { TemplateFiveComponent } from './templates/template-five/template-five.c
 import { TemplateSixComponent } from './templates/template-six/template-six.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditTemplateComponent } from './templates/edit-template/edit-template.component';
+import { NgxPrintModule } from 'ngx-print';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { EditTemplateComponent } from './templates/edit-template/edit-template.c
     HttpClientModule,
     LoadingBarRouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPrintModule,
   ],
   providers: [
     TemplateService,
