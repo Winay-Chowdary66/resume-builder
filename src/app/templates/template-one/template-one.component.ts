@@ -13,8 +13,9 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ContactForm, SkillForm } from 'src/app/models/template';
 import { TemplateService } from 'src/app/template/template.service';
-import { CommonForm } from '../edit-template/edit-template.component';
 
 @Component({
   selector: 'app-template-one',
@@ -24,25 +25,13 @@ import { CommonForm } from '../edit-template/edit-template.component';
 export class TemplateOneComponent
   implements OnInit, DoCheck, AfterViewInit, OnChanges, AfterViewChecked
 {
-  public firstName = '';
-  public jobRole = '';
-  public experienceForm: ExperienceForm = new CommonForm();
-  public projectsForm: ExperienceForm = new CommonForm();
-  public educationForm: ExperienceForm = new CommonForm();
-  public contactForm: any = {
-    address: 'AP, India- 522124',
-    email: '',
-    phone: '9492117926',
-    site: 'github.com/winay-chowdary66',
-  };
-  public skillsForm: any = {
-    skill1: 'Python',
-    skill2: 'Java',
-    skill3: 'C++',
-    skill4: 'C',
-    skill5: 'HTML',
-    skill6: 'CSS',
-  };
+  public firstName$: Observable<string>;
+  public jobRole$: Observable<string>;
+  public experienceForm$: Observable<ExperienceForm>;
+  public projectsForm$: Observable<ExperienceForm>;
+  public educationForm$: Observable<ExperienceForm>;
+  public contactForm$: Observable<ContactForm>;
+  public skillsForm$: Observable<SkillForm>;
   public editBtnProperty = {
     profile: 'profile',
     experience: 'experience',
@@ -73,52 +62,27 @@ export class TemplateOneComponent
   @ViewChild('profPicInp', {static: true})
   profPicInp!: ElementRef;
 
-  constructor(private _tempService: TemplateService) {}
+  constructor(private _tempService: TemplateService) {
+    this.firstName$ = this._tempService.getFirstName();
+    this.jobRole$ = this._tempService.getJobRole();
+    this.experienceForm$ = this._tempService.getExperienceForm();
+    this.projectsForm$ = this._tempService.getProjectsForm();
+    this.educationForm$ = this._tempService.getEducationForm();
+    this.contactForm$ = this._tempService.getContactForm();
+    this.skillsForm$ = this._tempService.getSkillsForm();
+  }
 
   ngOnInit(): void {
 
     //set has profile pic to true if already present
-    if (localStorage.getItem('Template-1')) {
+    if (localStorage.getItem('profileTemp1')) {
       this.hasTemp1ProfPic = true;
       //Load Profile Pic from Localstorage
       this.profPicSrc = JSON.parse(
-        localStorage.getItem('Template-1') || '{}'
+        localStorage.getItem('profileTemp1') || '{}'
       ).profilePic;
     }
 
-    
-
-    this._tempService.getFirstName().subscribe((msg) => {
-      if (msg == '') return;
-      this.firstName = msg;
-    });
-
-    this._tempService.getJobRole().subscribe((msg) => {
-      if (msg == '') return;
-      this.jobRole = msg;
-    });
-
-    this._tempService.getExperienceForm().subscribe((msg) => {
-      if (msg == null) return;
-      this.experienceForm = msg;
-    });
-    this._tempService.getProjectsForm().subscribe((msg) => {
-      if (msg == null) return;
-      this.projectsForm = msg;
-    });
-    this._tempService.getEducationForm().subscribe((msg) => {
-      if (msg == null) return;
-      this.educationForm = msg;
-    });
-
-    this._tempService.getContactForm().subscribe((msg) => {
-      if (msg == null) return;
-      this.contactForm = msg;
-    });
-    this._tempService.getSkillsForm().subscribe((msg) => {
-      if (msg == null) return;
-      this.skillsForm = msg;
-    });
     this._tempService.getSkill1Value().subscribe((msg) => {
       if (msg == null) return;
       this.skill1Value = msg;
@@ -145,7 +109,9 @@ export class TemplateOneComponent
     });
   }
 
-  ngDoCheck(): void {}
+  ngDoCheck(): void {
+    console.log('ngDoCheck')
+  }
 
   ngAfterViewInit(): void {
   }
@@ -212,7 +178,7 @@ export class TemplateOneComponent
     let file : File = profPicInput.files[0];
     let fileReader = new FileReader();
     fileReader.onload = (e) => {
-      localStorage.setItem('Template-1', JSON.stringify({"profilePic": fileReader.result}));
+      localStorage.setItem('profileTemp1', JSON.stringify({"profilePic": fileReader.result}));
       this.profPicSrc = String(fileReader.result);
     }
     fileReader.readAsDataURL(file);

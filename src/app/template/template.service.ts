@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { Subject , Observable, of, BehaviorSubject } from 'rxjs';
+import { ContactForm, SkillForm, Template, _tempFormData } from '../models/template';
 import { Templates } from '../models/templates';
 import { ExperienceForm } from '../templates/template-one/template-one.component';
 
@@ -8,21 +9,37 @@ import { ExperienceForm } from '../templates/template-one/template-one.component
   providedIn: 'root',
 })
 export class TemplateService {
-  private firstNameSubMsg = new Subject<string>();
-  private jobRoleSubMsg = new Subject<string>();
-  private _experienceForm = new Subject<ExperienceForm>();
-  private _projectsForm = new Subject<ExperienceForm>();
-  private _educationForm = new Subject<ExperienceForm>();
-  private _contactForm = new Subject<Object>();
-  private _skillsForm = new Subject<Object>();
-  private _btnProperty = new Subject<string>();
-  private _skill1Value = new Subject<string>();
-  private _skill2Value = new Subject<string>();
-  private _skill3Value = new Subject<string>();
-  private _skill4Value = new Subject<string>();
-  private _skill5Value = new Subject<string>();
-  private _skill6Value = new Subject<string>();
 
+  private _firstNameSubMsg = new BehaviorSubject<string>(_tempFormData.firstName);
+  private _jobRoleSubMsg = new BehaviorSubject<string>(_tempFormData.jobRole);
+  private _experienceForm = new BehaviorSubject<ExperienceForm>(
+    _tempFormData.experience
+  );
+  private _projectsForm = new BehaviorSubject<ExperienceForm>(_tempFormData.project);
+  private _educationForm = new BehaviorSubject<ExperienceForm>(_tempFormData.education);
+  private _contactForm = new BehaviorSubject<ContactForm>(_tempFormData.contact);
+  private _skillsForm = new BehaviorSubject<SkillForm>(_tempFormData.skills);
+  private _btnProperty = new BehaviorSubject<string>('');
+  private _skill1Value = new BehaviorSubject<string>('3');
+  private _skill2Value = new BehaviorSubject<string>('3');
+  private _skill3Value = new BehaviorSubject<string>('2');
+  private _skill4Value = new BehaviorSubject<string>('3');
+  private _skill5Value = new BehaviorSubject<string>('3');
+  private _skill6Value = new BehaviorSubject<string>('2');
+
+  private _setLocalStorage = () => {
+    const template1: Template = {
+      firstName: this._firstNameSubMsg.getValue(),
+      jobRole: this._jobRoleSubMsg.getValue(),
+      experience: this._experienceForm.getValue(),
+      project: this._projectsForm.getValue(),
+      education: this._educationForm.getValue(),
+      contact: this._contactForm.getValue(),
+      skills: this._skillsForm.getValue(),
+    };
+    // store all the template inputs
+    localStorage.setItem('Template-1', JSON.stringify(template1));
+  };
 
   url = 'assets/payloads/templates.json';
   constructor(private httpClient: HttpClient) {}
@@ -32,23 +49,26 @@ export class TemplateService {
   }
 
   sendFirstName(firstName: string) {
-    this.firstNameSubMsg.next(firstName);
+    this._firstNameSubMsg.next(firstName);
+    this._setLocalStorage();
   }
 
   getFirstName(): Observable<string> {
-    return this.firstNameSubMsg.asObservable();
+    return this._firstNameSubMsg.asObservable();
   }
 
   sendJobRole(jobRole: string) {
-    this.jobRoleSubMsg.next(jobRole);
+    this._jobRoleSubMsg.next(jobRole);
+    this._setLocalStorage();
   }
 
   getJobRole(): Observable<string> {
-    return this.jobRoleSubMsg.asObservable();
+    return this._jobRoleSubMsg.asObservable();
   }
 
   sendExperienceForm(experienceForm: ExperienceForm) {
     this._experienceForm.next(experienceForm);
+    this._setLocalStorage();
   }
 
   getExperienceForm(): Observable<ExperienceForm> {
@@ -56,6 +76,7 @@ export class TemplateService {
   }
   sendProjectsForm(projectsForm: ExperienceForm) {
     this._projectsForm.next(projectsForm);
+    this._setLocalStorage();
   }
 
   getProjectsForm(): Observable<ExperienceForm> {
@@ -63,32 +84,37 @@ export class TemplateService {
   }
   sendEducationForm(educationForm: ExperienceForm) {
     this._educationForm.next(educationForm);
+    this._setLocalStorage();
   }
 
   getEducationForm(): Observable<ExperienceForm> {
     return this._educationForm.asObservable();
   }
 
-  sendContactForm(contactForm: Object) {
+  sendContactForm(contactForm: ContactForm) {
     this._contactForm.next(contactForm);
+    this._setLocalStorage();
   }
 
-  getContactForm(): Observable<Object> {
+  getContactForm(): Observable<ContactForm> {
     return this._contactForm.asObservable();
   }
 
-  sendSkillsForm(skillsForm: Object) {
+  sendSkillsForm(skillsForm: SkillForm) {
     this._skillsForm.next(skillsForm);
+    this._setLocalStorage();
   }
 
-  getSkillsForm(): Observable<Object> {
+  getSkillsForm(): Observable<SkillForm> {
     return this._skillsForm.asObservable();
   }
 
+  // Send which tab edit is clicked
   sendBtnProperty(property: string) {
     this._btnProperty.next(property);
   }
 
+  // get the clicked edit tab
   getBtnProperty(): Observable<string> {
     return this._btnProperty.asObservable();
   }

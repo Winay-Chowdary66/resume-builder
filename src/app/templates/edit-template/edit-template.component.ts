@@ -9,10 +9,13 @@ import {
   ViewChildren,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
+  Input,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TemplateService } from 'src/app/template/template.service';
 import { ExperienceForm } from '../template-one/template-one.component';
+import { Subject } from 'rxjs';
+import { Template, _tempFormData } from 'src/app/models/template';
 
 @Component({
   selector: 'app-edit-template',
@@ -135,7 +138,8 @@ export class EditTemplateComponent implements OnInit, DoCheck, AfterViewInit {
     return this.experience?.get(name) as FormControl;
   }
 
-  @ViewChildren('skillBtn1') skillButton1!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChildren('skillBtn1')
+  skillButton1!: QueryList<ElementRef<HTMLElement>>;
   @ViewChildren('skillBtn2')
   skillButton2!: QueryList<ElementRef<HTMLElement>>;
   @ViewChildren('skillBtn3')
@@ -154,83 +158,184 @@ export class EditTemplateComponent implements OnInit, DoCheck, AfterViewInit {
   public skill5Value: string = '3';
   public skill6Value: string = '2';
 
+  @Input('resetFormSubject')
+  resetFormSubject!: Subject<Boolean>;
+
   constructor(
     private _tempService: TemplateService,
     private _changeDetector: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
-    this.firstName = this.resumeForm.get('firstName')?.value;
-    this.jobRole = this.resumeForm.get('jobRole')?.value;
-    this.experienceForm.title = this.experience.get('title')?.value;
-    this.experienceForm.organization =
-      this.experience.get('organization')?.value;
-    this.experienceForm.roleInProj = this.experience.get('roleInProj')?.value;
-    this.experienceForm.startingYear =
-      this.experience.get('startingYear')?.value;
-    this.experienceForm.endingYear = this.experience.get('endingYear')?.value;
-    this.experienceForm.point1 = this.experience.get('point1')?.value;
-    this.experienceForm.point2 = this.experience.get('point2')?.value;
+    this.firstName = this.getLocalStorage(
+      0,
+      'firstName',
+      this.resumeForm.get('firstName')?.value
+    );
+    this.jobRole = this.getLocalStorage(
+      0,
+      'jobRole',
+      this.resumeForm.get('jobRole')?.value
+    );
+    this.experienceForm.title = this.getLocalStorage(
+      1,
+      'title',
+      this.experience.get('title')?.value
+    );
+    this.experienceForm.organization = this.getLocalStorage(
+      1,
+      'organization',
+      this.experience.get('organization')?.value
+    );
+    this.experienceForm.roleInProj = this.getLocalStorage(
+      1,
+      'roleInProj',
+      this.experience.get('roleInProj')?.value
+    );
+    this.experienceForm.startingYear = this.getLocalStorage(
+      1,
+      'startingYear',
+      this.experience.get('startingYear')?.value
+    );
+    this.experienceForm.endingYear = this.getLocalStorage(
+      1,
+      'endingYear',
+      this.experience.get('endingYear')?.value
+    );
+    this.experienceForm.point1 = this.getLocalStorage(
+      1,
+      'point1',
+      this.experience.get('point1')?.value
+    );
+    this.experienceForm.point2 = this.getLocalStorage(
+      1,
+      'point2',
+      this.experience.get('point2')?.value
+    );
 
-    this.projectsForm.title = this.projects.get('title')?.value;
-    this.projectsForm.organization = this.projects.get('organization')?.value;
-    this.projectsForm.roleInProj = this.projects.get('roleInProj')?.value;
-    this.projectsForm.startingYear = this.projects.get('startingYear')?.value;
-    this.projectsForm.endingYear = this.projects.get('endingYear')?.value;
-    this.projectsForm.point1 = this.projects.get('point1')?.value;
-    this.projectsForm.point2 = this.projects.get('point2')?.value;
+    this.projectsForm.title = this.getLocalStorage(
+      2,
+      'title',
+      this.projects.get('title')?.value
+    );
+    this.projectsForm.organization = this.getLocalStorage(
+      2,
+      'organization',
+      this.projects.get('organization')?.value
+    );
+    this.projectsForm.roleInProj = this.getLocalStorage(
+      2,
+      'roleInProj',
+      this.projects.get('roleInProj')?.value
+    );
+    this.projectsForm.startingYear = this.getLocalStorage(
+      2,
+      'startingYear',
+      this.projects.get('startingYear')?.value
+    );
+    this.projectsForm.endingYear = this.getLocalStorage(
+      2,
+      'endingYear',
+      this.projects.get('endingYear')?.value
+    );
+    this.projectsForm.point1 = this.getLocalStorage(
+      2,
+      'point1',
+      this.projects.get('point1')?.value
+    );
+    this.projectsForm.point2 = this.getLocalStorage(
+      2,
+      'point2',
+      this.projects.get('point2')?.value
+    );
 
-    this.educationForm.title = this.resumeForm
-      .get('education')
-      ?.get('title')?.value;
-    this.educationForm.organization = this.resumeForm
-      .get('education')
-      ?.get('organization')?.value;
-    this.educationForm.roleInProj = this.resumeForm
-      .get('education')
-      ?.get('roleInProj')?.value;
-    this.educationForm.startingYear = this.resumeForm
-      .get('education')
-      ?.get('startingYear')?.value;
-    this.educationForm.endingYear = this.resumeForm
-      .get('education')
-      ?.get('endingYear')?.value;
-    this.educationForm.point1 = this.resumeForm
-      .get('education')
-      ?.get('point1')?.value;
-    this.educationForm.point2 = this.resumeForm
-      .get('education')
-      ?.get('point2')?.value;
+    this.educationForm.title = this.getLocalStorage(
+      3,
+      'title',
+      this.resumeForm.get('education')?.get('title')?.value
+    );
+    this.educationForm.organization = this.getLocalStorage(
+      3,
+      'organization',
+      this.resumeForm.get('education')?.get('organization')?.value
+    );
+    this.educationForm.roleInProj = this.getLocalStorage(
+      3,
+      'roleInProj',
+      this.resumeForm.get('education')?.get('roleInProj')?.value
+    );
+    this.educationForm.startingYear = this.getLocalStorage(
+      3,
+      'startingYear',
+      this.resumeForm.get('education')?.get('startingYear')?.value
+    );
+    this.educationForm.endingYear = this.getLocalStorage(
+      3,
+      'endingYear',
+      this.resumeForm.get('education')?.get('endingYear')?.value
+    );
+    this.educationForm.point1 = this.getLocalStorage(
+      3,
+      'point1',
+      this.resumeForm.get('education')?.get('point1')?.value
+    );
+    this.educationForm.point2 = this.getLocalStorage(
+      3,
+      'point2',
+      this.resumeForm.get('education')?.get('point2')?.value
+    );
 
-    this.contactForm.address = this.resumeForm
-      .get('contact')
-      ?.get('address')?.value;
-    this.contactForm.email = this.resumeForm
-      .get('contact')
-      ?.get('email')?.value;
-    this.contactForm.phone = this.resumeForm
-      .get('contact')
-      ?.get('phone')?.value;
-    this.contactForm.site = this.resumeForm.get('contact')?.get('site')?.value;
+    this.contactForm.address = this.getLocalStorage(
+      4,
+      'address',
+      this.resumeForm.get('contact')?.get('address')?.value
+    );
+    this.contactForm.email = this.getLocalStorage(
+      4,
+      'email',
+      this.resumeForm.get('contact')?.get('email')?.value
+    );
+    this.contactForm.phone = this.getLocalStorage(
+      4,
+      'phone',
+      this.resumeForm.get('contact')?.get('phone')?.value
+    );
+    this.contactForm.site = this.getLocalStorage(
+      4,
+      'site',
+      this.resumeForm.get('contact')?.get('site')?.value
+    );
 
-    this.skillsForm.skill1 = this.resumeForm
-      .get('skills')
-      ?.get('skill1')?.value;
-    this.skillsForm.skill2 = this.resumeForm
-      .get('skills')
-      ?.get('skill2')?.value;
-    this.skillsForm.skill3 = this.resumeForm
-      .get('skills')
-      ?.get('skill3')?.value;
-    this.skillsForm.skill4 = this.resumeForm
-      .get('skills')
-      ?.get('skill4')?.value;
-    this.skillsForm.skill5 = this.resumeForm
-      .get('skills')
-      ?.get('skill5')?.value;
-    this.skillsForm.skill6 = this.resumeForm
-      .get('skills')
-      ?.get('skill6')?.value;
+    this.skillsForm.skill1 = this.getLocalStorage(
+      5,
+      'skill1',
+      this.resumeForm.get('skills')?.get('skill1')?.value
+    );
+    this.skillsForm.skill2 = this.getLocalStorage(
+      5,
+      'skill2',
+      this.resumeForm.get('skills')?.get('skill2')?.value
+    );
+    this.skillsForm.skill3 = this.getLocalStorage(
+      5,
+      'skill3',
+      this.resumeForm.get('skills')?.get('skill3')?.value
+    );
+    this.skillsForm.skill4 = this.getLocalStorage(
+      5,
+      'skill4',
+      this.resumeForm.get('skills')?.get('skill4')?.value
+    );
+    this.skillsForm.skill5 = this.getLocalStorage(
+      5,
+      'skill5',
+      this.resumeForm.get('skills')?.get('skill5')?.value
+    );
+    this.skillsForm.skill6 = this.getLocalStorage(
+      5,
+      'skill6',
+      this.resumeForm.get('skills')?.get('skill6')?.value
+    );
 
     this._tempService.getBtnProperty().subscribe((property) => {
       this.editBtnProperty = property;
@@ -245,7 +350,21 @@ export class EditTemplateComponent implements OnInit, DoCheck, AfterViewInit {
   }
 
   ngDoCheck(): void {
-    this._tempService.sendFirstName(this.firstName);
+    if (this.editBtnProperty == 'skills') {
+      this.skillButton1?.find((e: ElementRef) => e.nativeElement.value === this.skill1Value)
+        ?.nativeElement.click();
+      this.skillButton2?.find((e: ElementRef) => e.nativeElement.value === this.skill2Value)
+        ?.nativeElement.click();
+      this.skillButton3?.find((e: ElementRef) => e.nativeElement.value === this.skill3Value)
+        ?.nativeElement.click();
+      this.skillButton4?.find((e: ElementRef) => e.nativeElement.value === this.skill4Value)
+        ?.nativeElement.click();
+      this.skillButton5?.find((e: ElementRef) => e.nativeElement.value === this.skill5Value)
+        ?.nativeElement.click();
+      this.skillButton6?.find((e: ElementRef) => e.nativeElement.value === this.skill6Value)
+        ?.nativeElement.click();
+    }
+      this._tempService.sendFirstName(this.firstName);
     this._tempService.sendJobRole(this.jobRole);
     this._tempService.sendExperienceForm(this.experienceForm);
     // console.log(this.editBtnProperty);
@@ -264,6 +383,15 @@ export class EditTemplateComponent implements OnInit, DoCheck, AfterViewInit {
     this._tempService.sendContactForm(this.contactForm);
     this._tempService.sendSkillsForm(this.skillsForm);
     this.discardForm();
+
+    this.resetFormSubject.subscribe((response) => {
+      if (response) {
+        localStorage.clear();
+        this.resumeForm.reset(_tempFormData);
+        this.resumeForm.updateValueAndValidity();
+
+      }
+    }, err => {console.log(err)});
   }
 
   ngAfterViewInit() {
@@ -342,12 +470,26 @@ export class EditTemplateComponent implements OnInit, DoCheck, AfterViewInit {
     this._changeDetector.detectChanges();
   }
 
-  resetForm() {
-    this.resumeForm.reset();
-  }
-
   discardForm() {
     this.editBtnProperty = '';
+  }
+
+  getLocalStorage(tab: number, attribute: string, value: any) {
+    const template1 = JSON.parse(localStorage.getItem('Template-1') || '{}');
+    const RESUME_TABS = [
+      '',
+      'experience',
+      'projects',
+      'education',
+      'contact',
+      'skills',
+    ];
+    if (Object.entries(template1).length > 0) {
+      if (tab === 0) return template1[attribute] || value;
+      const attr = template1[RESUME_TABS[tab]];
+      return (attr && Object.entries(attr).length) ? attr[attribute] : value;
+    }
+    return value;
   }
 }
 
